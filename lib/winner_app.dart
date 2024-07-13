@@ -11,7 +11,7 @@ class WinnerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(430, 932),
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -19,8 +19,12 @@ class WinnerApp extends StatelessWidget {
         title: "Winner App",
         onGenerateRoute: appRouter.generateRoute,
         theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(
+            color: Colors.white,
+          )),
           primaryColor: ColorsManger.mainDarkBlue,
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: const Color(0xff1B4242),
         ),
       ),
     );
