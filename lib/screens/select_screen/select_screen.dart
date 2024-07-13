@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:winner_app/core/helpers/spacing.dart';
-import 'package:winner_app/core/theming/styles.dart';
+import 'package:winner_app/core/widgets/app_app_bar.dart';
+import 'package:winner_app/screens/select_screen/widgets/teams_count_widget.dart';
 
 class SelectScreen extends StatelessWidget {
   const SelectScreen({super.key});
@@ -9,32 +10,22 @@ class SelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: const Color(0xff5C8374),
-        title: Row(
+      appBar: const AppAppBar(),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            horizontalSpace(35),
-            RotationTransition(
-              turns: const AlwaysStoppedAnimation(-20.62 / 360),
-              child: Image.asset(
-                "assets/images/image.png",
-                height: 60.h,
-                width: 60.w,
-              ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TeamsCountWidget(teamsCount: "2 Teams"),
+                TeamsCountWidget(teamsCount: "3 Teams"),
+              ],
             ),
-            Text(
-              "Domino",
-              style: Styles.font32WhiteW400,
-            ),
+            verticalSpace(69),
+            const TeamsCountWidget(teamsCount: "4 Teams"),
           ],
-        ),
-      ),
-      body: Center(
-        child: Image.asset(
-          "assets/images/image.png",
-          height: 74.h,
-          width: 74.w,
         ),
       ),
     );
