@@ -15,7 +15,7 @@ class WinnerApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.selectScreen,
+        initialRoute: Routes.splashScreen,
         title: "Winner App",
         onGenerateRoute: appRouter.generateRoute,
         theme: ThemeData(
