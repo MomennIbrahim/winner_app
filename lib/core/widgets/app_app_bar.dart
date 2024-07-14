@@ -5,14 +5,16 @@ import '../helpers/spacing.dart';
 import '../theming/styles.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const AppAppBar({super.key});
+  const AppAppBar({super.key, this.automaticallyImplyLeading});
+
+  final bool? automaticallyImplyLeading;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
       backgroundColor: const Color(0xff5C8374),
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: automaticallyImplyLeading ?? false,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
