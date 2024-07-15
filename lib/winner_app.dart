@@ -24,7 +24,7 @@ class WinnerApp extends StatelessWidget {
             color: Colors.white,
           )),
           primaryColor: ColorsManger.mainDarkBlue,
-          scaffoldBackgroundColor: const Color(0xff1B4242),
+          scaffoldBackgroundColor: ColorsManger.scaffoldColor,
         ),
       ),
     );

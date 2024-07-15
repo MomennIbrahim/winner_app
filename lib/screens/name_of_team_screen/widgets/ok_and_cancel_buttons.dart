@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:winner_app/core/helpers/extension.dart';
 import 'package:winner_app/core/helpers/spacing.dart';
+import 'package:winner_app/core/routing/routes.dart';
 import 'package:winner_app/core/widgets/app_button.dart';
 
 class OkAndCancelButtons extends StatelessWidget {
@@ -22,7 +24,9 @@ class OkAndCancelButtons extends StatelessWidget {
           Expanded(
               child: AppButton(
             text: "Ok",
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.homeScreen);
+            },
             height: 40,
           )),
         ],
