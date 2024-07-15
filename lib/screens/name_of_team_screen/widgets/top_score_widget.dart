@@ -22,7 +22,7 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
           padding: EdgeInsets.symmetric(horizontal: 32.w),
           child: Text(
             "Top Score",
-            style: Styles.font20BlackW400,
+            style: Styles.font20BlackW600,
           ),
         ),
         verticalSpace(10),
@@ -46,7 +46,7 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
               children: [
                 Text(
                   "No Top Score",
-                  style: Styles.font20BlackW400,
+                  style: Styles.font20BlackW600,
                 ),
                 horizontalSpace(5),
                 Icon(

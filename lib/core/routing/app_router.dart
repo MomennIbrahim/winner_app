@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:winner_app/core/routing/routes.dart';
+import 'package:winner_app/screens/home_screen/home_screen.dart';
 import 'package:winner_app/screens/name_of_team_screen/name_of_team_screen.dart';
 import 'package:winner_app/screens/select_screen/select_screen.dart';
 import 'package:winner_app/splash_screen.dart';
@@ -14,6 +15,8 @@ class AppRouter {
       case Routes.nameOfTeamsScreen:
         return MaterialPageRoute(
             builder: (context) => const NameOfTeamScreen());
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(
