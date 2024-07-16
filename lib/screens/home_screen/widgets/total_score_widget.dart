@@ -35,7 +35,6 @@ class TotalScoreWidget extends StatelessWidget {
       ),
     );
   }
-   
 
   buildTotalWidget(
       {required String totalScore, required BuildContext context}) {
@@ -67,10 +66,11 @@ class TotalScoreWidget extends StatelessWidget {
                       backgroundColor: ColorsManger.mainDarkBlue,
                       title: Column(
                         children: [
-                          const AppTextFormField(
+                          AppTextFormField(
                             hintText: "Add new score",
                             textAlign: TextAlign.start,
                             keyboardType: TextInputType.number,
+                            validation: (value) {},
                           ),
                           verticalSpace(10),
                           Row(

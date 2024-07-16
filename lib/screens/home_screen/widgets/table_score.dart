@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:winner_app/controller/cubit/app_cubit.dart';
 import 'package:winner_app/core/theming/styles.dart';
 
 class TableScore extends StatelessWidget {
@@ -15,7 +17,7 @@ class TableScore extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Team A",
+                  context.read<AppCubit>().tA.text,
                   style: Styles.font32WhiteW400,
                 ),
                 Column(
@@ -40,7 +42,7 @@ class TableScore extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Team B",
+                  context.read<AppCubit>().tB.text,
                   style: Styles.font32WhiteW400,
                 ),
                 Column(
