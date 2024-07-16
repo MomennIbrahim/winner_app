@@ -133,10 +133,4 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
       });
     }
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    topScoreController.dispose();
-  }
 }
