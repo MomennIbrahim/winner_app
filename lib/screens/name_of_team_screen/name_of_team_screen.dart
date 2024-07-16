@@ -23,7 +23,7 @@ class NameOfTeamScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 34.0.w),
         child: Center(
           child: Container(
-            height: isThree['isThree']! ? 470.h : 400.h,
+            height: isThree['isThree']! ? 470.h : isTwo['isTwo']! ? 400.h: 470.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: const Color(0xff5C8374),
