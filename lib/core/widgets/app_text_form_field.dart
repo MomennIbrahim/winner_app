@@ -13,6 +13,8 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final Color? backgroundColor;
   final TextAlign? textAlign;
+  final Function(String? value) validation;
+  final TextEditingController? controller;
 
   const AppTextFormField({
     super.key,
@@ -26,11 +28,14 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType,
     this.backgroundColor,
     this.textAlign,
+    required this.validation,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       textAlign: textAlign ?? TextAlign.center,
       obscureText: obsecureText ?? false,
       keyboardType: keyboardType ?? TextInputType.text,
@@ -51,11 +56,24 @@ class AppTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
               borderSide: const BorderSide(color: ColorsManger.mainDarkBlue),
             ),
+        focusedErrorBorder: focusedBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(4),
+              borderSide: const BorderSide(color: Colors.red),
+            ),
+        errorBorder: focusedBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(4),
+              borderSide: const BorderSide(color: Colors.red),
+            ),
         hintStyle: hintStyle ?? Styles.font17BlackW400,
         hintText: hintText,
         hintFadeDuration: const Duration(milliseconds: 800),
         suffixIcon: suffixIcon,
       ),
+      validator: (value) {
+        return validation(value);
+      },
     );
   }
 }
