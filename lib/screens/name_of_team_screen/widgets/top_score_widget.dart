@@ -21,24 +21,6 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
   bool isCheckBoxSelected = false;
   bool hasNumber = false;
 
-  late TextEditingController topScoreController;
-
-  @override
-  void initState() {
-    super.initState();
-
-    topScoreController = context.read<AppCubit>().topScoreController;
-    setupTopScoreControllerListner();
-  }
-
-  void setupTopScoreControllerListner() {
-    topScoreController.addListener(() {
-      setState(() {
-        hasNumber = AppRegex.isPhoneNumberValid(topScoreController.text);
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -63,11 +45,11 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
                 hintText: "What's your top score?",
                 textAlign: TextAlign.start,
                 validation: (value) {
-                  if (!RegExp(r'^\d+$').hasMatch(value!)) {
+                  if (!AppRegex.hasNumber(value!)) {
                     return "Enter a valid score without any special characters";
                   }
                 },
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.number,
               ),
             ),
           verticalSpace(15),
@@ -114,6 +96,9 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
                     child: AppButton(
                   text: "Ok",
                   onPressed: () {
+                    if (isCheckBoxSelected) {
+                      context.read<AppCubit>().topScoreController.clear();
+                    }
                     validateThenDoLogin(context);
                   },
                   height: 40,
@@ -128,9 +113,8 @@ class _TopScoreWidgetState extends State<TopScoreWidget> {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<AppCubit>().formKey.currentState!.validate()) {
-      context.pushNamed(Routes.homeScreen, arguments: {
-        "isCheck": isCheckBoxSelected,
-      });
+      context.pushNamed(Routes.homeScreen,
+          arguments: {"isCheck": isCheckBoxSelected});
     }
   }
 }

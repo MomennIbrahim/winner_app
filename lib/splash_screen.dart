@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen>
     Future.delayed(
       const Duration(seconds: 5),
       () {
-        context.pushNamed(Routes.selectScreen);
+        context.pushReplacementNamed(Routes.selectScreen);
       },
     );
   }

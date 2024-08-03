@@ -1,65 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:winner_app/controller/cubit/app_cubit.dart';
-import 'package:winner_app/core/theming/styles.dart';
+import 'package:winner_app/screens/home_screen/widgets/four_teams_home.dart';
+import 'package:winner_app/screens/home_screen/widgets/three_teams_home.dart';
+import 'package:winner_app/screens/home_screen/widgets/two_teams_home.dart';
 
 class TableScore extends StatelessWidget {
-  const TableScore({super.key});
+  const TableScore({
+    super.key,
+    required this.isCheck,
+  });
+
+  final bool isCheck;
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  context.read<AppCubit>().tA.text,
-                  style: Styles.font32WhiteW400,
-                ),
-                Column(
-                  children: List.generate(
-                    10,
-                    (index) => Text(
-                      "50",
-                      textAlign: TextAlign.center,
-                      style: Styles.font28White600,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const VerticalDivider(
-            color: Colors.white,
-            thickness: 1.8,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  context.read<AppCubit>().tB.text,
-                  style: Styles.font32WhiteW400,
-                ),
-                Column(
-                  children: List.generate(
-                    10,
-                    (index) => Text(
-                      "50",
-                      textAlign: TextAlign.center,
-                      style: Styles.font28White600,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+    return BlocBuilder<AppCubit, AppState>(
+      builder: (context, state) {
+        if (context.read<AppCubit>().isTwo) {
+          return TwoTeamsHome(
+            isCheck: isCheck,
+          );
+        } else if (context.read<AppCubit>().isThree) {
+          return ThreeTeamsHome(
+            isCheck: isCheck,
+          );
+        } else {
+          return FourTeamsHome(
+            isCheck: isCheck,
+          );
+        }
+      },
     );
   }
 }
