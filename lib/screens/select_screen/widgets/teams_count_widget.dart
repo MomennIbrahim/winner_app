@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:winner_app/core/helpers/extension.dart';
 
-import '../../../core/routing/routes.dart';
 import '../../../core/theming/colors.dart';
 import '../../../core/theming/styles.dart';
 
 class TeamsCountWidget extends StatelessWidget {
   final String teamsCount;
-  
-  const TeamsCountWidget(
-      {super.key,
-      required this.teamsCount,
-    });
+
+  const TeamsCountWidget({
+    super.key,
+    required this.teamsCount,
+  });
 
   @override
   Widget build(BuildContext context) {

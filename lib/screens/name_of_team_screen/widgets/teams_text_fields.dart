@@ -5,20 +5,16 @@ import 'package:winner_app/core/helpers/spacing.dart';
 import 'package:winner_app/core/widgets/app_text_form_field.dart';
 
 class TeamsTextFields extends StatelessWidget {
-  const TeamsTextFields(
-      {super.key, required this.isThree, required this.isTwo});
-
-  final Map<String, bool> isThree;
-  final Map<String, bool> isTwo;
+  const TeamsTextFields({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (isTwo["isTwo"] == true) {
+    if (context.read<AppCubit>().isTwo) {
       return Row(
         children: [
           Expanded(
             child: AppTextFormField(
-              controller: context.read<AppCubit>().tA,
+              controller: context.read<AppCubit>().tAController,
               hintText: "Team A",
               contentPadding: const EdgeInsets.symmetric(vertical: 15),
               validation: (value) {},
@@ -27,7 +23,7 @@ class TeamsTextFields extends StatelessWidget {
           horizontalSpace(8),
           Expanded(
             child: AppTextFormField(
-              controller: context.read<AppCubit>().tB,
+              controller: context.read<AppCubit>().tBController,
               hintText: "Team B",
               contentPadding: const EdgeInsets.symmetric(vertical: 15),
               validation: (value) {},
@@ -35,7 +31,7 @@ class TeamsTextFields extends StatelessWidget {
           ),
         ],
       );
-    } else if (isThree["isThree"] == true) {
+    } else if (context.read<AppCubit>().isThree) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,7 +39,7 @@ class TeamsTextFields extends StatelessWidget {
             children: [
               Expanded(
                   child: AppTextFormField(
-                controller: context.read<AppCubit>().tA,
+                controller: context.read<AppCubit>().tAController,
                 hintText: "Team A",
                 contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 validation: (value) {},
@@ -51,7 +47,7 @@ class TeamsTextFields extends StatelessWidget {
               horizontalSpace(8),
               Expanded(
                   child: AppTextFormField(
-                controller: context.read<AppCubit>().tB,
+                controller: context.read<AppCubit>().tBController,
                 hintText: "Team B",
                 contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 validation: (value) {},
@@ -62,7 +58,7 @@ class TeamsTextFields extends StatelessWidget {
           SizedBox(
             width: MediaQuery.sizeOf(context).width / 2.4,
             child: AppTextFormField(
-              controller: context.read<AppCubit>().tC,
+              controller: context.read<AppCubit>().tCController,
               hintText: "Team C",
               contentPadding: const EdgeInsets.symmetric(vertical: 15),
               validation: (value) {},
@@ -77,7 +73,7 @@ class TeamsTextFields extends StatelessWidget {
             children: [
               Expanded(
                   child: AppTextFormField(
-                controller: context.read<AppCubit>().tA,
+                controller: context.read<AppCubit>().tAController,
                 hintText: "Team A",
                 contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 validation: (value) {},
@@ -85,7 +81,7 @@ class TeamsTextFields extends StatelessWidget {
               horizontalSpace(8),
               Expanded(
                   child: AppTextFormField(
-                controller: context.read<AppCubit>().tB,
+                controller: context.read<AppCubit>().tBController,
                 hintText: "Team B",
                 contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 validation: (value) {},
@@ -97,7 +93,7 @@ class TeamsTextFields extends StatelessWidget {
             children: [
               Expanded(
                   child: AppTextFormField(
-                controller: context.read<AppCubit>().tC,
+                controller: context.read<AppCubit>().tCController,
                 hintText: "Team C",
                 contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 validation: (value) {},
@@ -105,7 +101,7 @@ class TeamsTextFields extends StatelessWidget {
               horizontalSpace(8),
               Expanded(
                   child: AppTextFormField(
-                controller: context.read<AppCubit>().tD,
+                controller: context.read<AppCubit>().tDController,
                 hintText: "Team D",
                 contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 validation: (value) {},

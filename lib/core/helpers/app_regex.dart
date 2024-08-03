@@ -23,7 +23,7 @@ class AppRegex {
   }
 
   static bool hasNumber(String password) {
-    return RegExp(r'^(?=.*?[0-9])').hasMatch(password);
+    return RegExp(r'^\d+$').hasMatch(password);
   }
 
   static bool hasSpecialCharacter(String password) {

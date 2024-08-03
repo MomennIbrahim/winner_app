@@ -9,6 +9,13 @@ class Styles {
     fontFamily: "TenorSans",
   );
 
+    static TextStyle font14WhiteW400 = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w900,
+    color: Colors.white,
+    fontFamily: "TenorSans",
+  );
+
   static TextStyle font20BlackW600 = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeight.w600,
@@ -40,6 +47,13 @@ class Styles {
     fontSize: 32.sp,
     fontWeight: FontWeight.w400,
     color: Colors.white,
+    fontFamily: "TenorSans",
+  );
+
+  static TextStyle font32BlackW400 = TextStyle(
+    fontSize: 32.sp,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
     fontFamily: "TenorSans",
   );
 }

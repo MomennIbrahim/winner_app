@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:winner_app/controller/cubit/app_cubit.dart';
 
 import '../helpers/spacing.dart';
 import '../theming/styles.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const AppAppBar({super.key, this.automaticallyImplyLeading});
+  const AppAppBar({super.key, this.automaticallyImplyLeading, this.space});
 
   final bool? automaticallyImplyLeading;
+  final double? space;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +18,35 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       backgroundColor: const Color(0xff5C8374),
       automaticallyImplyLeading: automaticallyImplyLeading ?? false,
+      actions: [
+        IconButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text("Are you sure to all score?"),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("No"),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      context.read<AppCubit>().deleteAllScore();
+
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("Yes"),
+                  ),
+                ],
+              ),
+            );
+          },
+          icon: const Icon(Icons.delete),
+        ),
+      ],
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -30,7 +62,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
             "Domino",
             style: Styles.font32WhiteW400,
           ),
-          horizontalSpace(10),
+          horizontalSpace(space?.w ?? 10),
         ],
       ),
     );

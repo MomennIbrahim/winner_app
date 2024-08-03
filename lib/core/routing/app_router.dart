@@ -14,14 +14,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const SelectScreen());
       case Routes.nameOfTeamsScreen:
         return MaterialPageRoute(
-            builder: (context) => NameOfTeamScreen(
-                  isThree: settings.arguments as Map<String ,bool>,
-                  isTwo: settings.arguments as Map<String, bool>,
-                ));
+          builder: (context) => const NameOfTeamScreen(),
+        );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (context) =>  HomeScreen(
-          isCheck: settings.arguments as Map<String ,bool>,
-        ));
+        return MaterialPageRoute(
+            builder: (context) => HomeScreen(
+                  isCheck: settings.arguments as Map<String, bool>,
+                ));
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(
